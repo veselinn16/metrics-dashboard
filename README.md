@@ -7,7 +7,7 @@ Afterwards, you can test that `kubectl` works by running a command like `kubectl
 
 Output
 ```bash
-PS C:\Users\Noel> kubectl describe services
+PS C:\Users\Veselin> kubectl describe services
 Name:              kubernetes
 Namespace:         default
 Labels:            component=apiserver
@@ -28,7 +28,7 @@ Events:            <none>
 ## Install Helm
 
 ```bash
-PS C:\Users\Noel\Desktop\udacity\MetricsDashboard\Project_Starter_Files-Building_a_Metrics_Dashboard> vagrant ssh
+PS C:\Users\Veselin\Desktop\udacity\MetricsDashboard> vagrant ssh
 Last login: Mon Oct 18 07:21:05 2021 from 10.0.2.2
 Have a lot of fun...
 Last login: Mon Oct 18 07:21:05 2021 from 10.0.2.2
@@ -131,14 +131,14 @@ clusterrolebinding.rbac.authorization.k8s.io/jaeger-operator created
 ##  Deploying the Application
 
 ```bash
-PS C:\Users\Noel\Desktop\udacity\MetricsDashboard\Project_Starter_Files-Building_a_Metrics_Dashboard\manifests> kubectl apply -f app/
+PS C:\Users\Veselin\Desktop\udacity\MetricsDashboard\manifests> kubectl apply -f app/
 deployment.apps/backend-app created
 service/backend-service created
 deployment.apps/frontend-app created
 service/frontend-service created
 deployment.apps/trial-app created
 service/trial-service created
-PS C:\Users\Noel\Desktop\udacity\MetricsDashboard\Project_Starter_Files-Building_a_Metrics_Dashboard\manifests> kubectl get all
+PS C:\Users\Veselin\Desktop\udacity\MetricsDashboard\manifests> kubectl get all
 NAME                                READY   STATUS    RESTARTS   AGE
 pod/svclb-backend-service-f78xq     1/1     Running   0          3m13s
 pod/svclb-frontend-service-rq9mk    1/1     Running   0          3m8s
@@ -189,14 +189,14 @@ Handling connection for 3000
 Handling connection for 3000
 Handling connection for 3000
 ```
-![Grafana login](https://github.com/nononoelsg/MetricsDashboard/blob/master/Project_Starter_Files-Building_a_Metrics_Dashboard/answer-img/Grafana%20login%20page.PNG)
+![Grafana login](https://github.com/veselinn16/metrics-dashboard/blob/main/answer-img/Grafana%20login%20page.PNG)
 
-![Prometheus](https://github.com/nononoelsg/MetricsDashboard/blob/master/Project_Starter_Files-Building_a_Metrics_Dashboard/answer-img/datasource.PNG)
+![Prometheus](https://github.com/veselinn16/metrics-dashboard/blob/main/answer-img/datasource.PNG)
 
 ##  Exposing the application
 
 ```bash
-PS C:\Users\Noel\Desktop\udacity\MetricsDashboard\Project_Starter_Files-Building_a_Metrics_Dashboard>  kubectl port-forward svc/frontend-service 8080:8080
+PS C:\Users\Veselin\Desktop\udacity\MetricsDashboard>  kubectl port-forward svc/frontend-service 8080:8080
 Forwarding from 127.0.0.1:8080 -> 8080
 Forwarding from [::1]:8080 -> 8080
 Handling connection for 8080
@@ -204,15 +204,15 @@ Handling connection for 8080
 Handling connection for 8080
 Handling connection for 8080
 ```
-![Frontend-service](https://github.com/nononoelsg/MetricsDashboard/blob/master/Project_Starter_Files-Building_a_Metrics_Dashboard/answer-img/frontend.PNG)
+![Frontend-service](https://github.com/veselinn16/metrics-dashboard/blob/main/answer-img/frontend.PNG)
 
 ## Verify the monitoring installation
 run `kubectl` command to show the running pods and services for all components. Take a screenshot of the output and include it here to verify the installation
 
-![Kubectl get all](https://github.com/nononoelsg/MetricsDashboard/blob/master/Project_Starter_Files-Building_a_Metrics_Dashboard/answer-img/getall.PNG)
+![Kubectl get all](https://github.com/veselinn16/metrics-dashboard/blob/main/answer-img/getall.PNG)
 
 ```bash
-PS C:\Users\Noel\Desktop\udacity\MetricsDashboard\Project_Starter_Files-Building_a_Metrics_Dashboard> kubectl get pods --all-namespaces
+PS C:\Users\Veselin\Desktop\udacity\MetricsDashboard> kubectl get pods --all-namespaces
 NAMESPACE       NAME                                                     READY   STATUS      RESTARTS   AGE
 kube-system     local-path-provisioner-7ff9579c6-d6d74                   1/1     Running     0          31m
 kube-system     metrics-server-7b4f8b595-2jcjz                           1/1     Running     0          31m
@@ -242,7 +242,7 @@ default         backend-app-76fddbbb79-zfmw4                             1/1    
 ```
 
 ```bash
-PS C:\Users\Noel\Desktop\udacity\MetricsDashboard\Project_Starter_Files-Building_a_Metrics_Dashboard> kubectl get services --all-namespaces
+PS C:\Users\Veselin\Desktop\udacity\MetricsDashboard> kubectl get services --all-namespaces
 NAMESPACE       NAME                                                 TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)                        AGE
 default         kubernetes                                           ClusterIP      10.43.0.1       <none>        443/TCP                        32m
 kube-system     kube-dns                                             ClusterIP      10.43.0.10      <none>        53/UDP,53/TCP,9153/TCP         32m
@@ -271,14 +271,14 @@ default         trial-service                                        LoadBalance
 ## Setup the Jaeger and Prometheus source
 Expose Grafana to the internet and then setup Prometheus as a data source. Provide a screenshot of the home page after logging into Grafana.
 
-![Grafana dashboard](https://github.com/nononoelsg/MetricsDashboard/blob/master/Project_Starter_Files-Building_a_Metrics_Dashboard/answer-img/Grafana_dashboard.PNG)
+![Grafana dashboard](https://github.com/veselinn16/metrics-dashboard/blob/main/answer-img/Grafana_dashboard.PNG)
 
-![Prometheus](https://github.com/nononoelsg/MetricsDashboard/blob/master/Project_Starter_Files-Building_a_Metrics_Dashboard/answer-img/datasource.PNG)
+![Prometheus](https://github.com/veselinn16/metrics-dashboard/blob/main/answer-img/datasource.PNG)
 
 ## Create a Basic Dashboard
 Create a dashboard in Grafana that shows Prometheus as a source. Take a screenshot and include it here.
 
-![Grafana Basic dashboard](https://github.com/nononoelsg/MetricsDashboard/blob/master/Project_Starter_Files-Building_a_Metrics_Dashboard/answer-img/basicDashboard.PNG)
+![Grafana Basic dashboard](https://github.com/veselinn16/metrics-dashboard/blob/main/answer-img/basicDashboard.PNG)
 
 ## Describe SLO/SLI
 Describe, in your own words, what the SLIs are, based on an SLO of *monthly uptime* and *request response time*.
@@ -299,18 +299,18 @@ It is important to know why we want to measure certain metrics for our customer.
 ## Create a Dashboard to measure our SLIs
 Create a dashboard to measure the uptime of the frontend and backend services We will also want to measure to measure 40x and 50x errors. Create a dashboard that show these values over a 24 hour period and take a screenshot.
 
-![Grafana Basic dashboard](https://github.com/nononoelsg/MetricsDashboard/blob/master/Project_Starter_Files-Building_a_Metrics_Dashboard/answer-img/4xx.PNG)
+![Grafana Basic dashboard](https://github.com/veselinn16/metrics-dashboard/blob/main/answer-img/4xx.PNG)
 
 ## Tracing our Flask App
 We will create a Jaeger span to measure the processes on the backend. Once you fill in the span, provide a screenshot of it here.
-![Jaeger backend](https://github.com/nononoelsg/MetricsDashboard/blob/master/Project_Starter_Files-Building_a_Metrics_Dashboard/answer-img/jaeger_backend.PNG)
+![Jaeger backend](https://github.com/veselinn16/metrics-dashboard/blob/main/answer-img/jaeger_backend.PNG)
 
 ## Jaeger in Dashboards
 Now that the trace is running, let's add the metric to our current Grafana dashboard. Once this is completed, provide a screenshot of it here.
 
-![Jaeger Tracking](https://github.com/nononoelsg/MetricsDashboard/blob/master/Project_Starter_Files-Building_a_Metrics_Dashboard/answer-img/jagertrace.PNG)
+![Jaeger Tracking](https://github.com/veselinn16/metrics-dashboard/blob/main/answer-img/jagertrace.PNG)
 
-![Jaeger backend](https://github.com/nononoelsg/MetricsDashboard/blob/master/Project_Starter_Files-Building_a_Metrics_Dashboard/answer-img/jaeger.PNG)
+![Jaeger backend](https://github.com/veselinn16/metrics-dashboard/blob/main/answer-img/jaeger.PNG)
 
 ## Report Error
 Using the template below, write a trouble ticket for the developers, to explain the errors that you are seeing (400, 500, latency) and to let them know the file that is causing the issue.
@@ -362,6 +362,6 @@ Now that we have our SLIs and SLOs, create KPIs to accurately measure these metr
 
 ## Final Dashboard
 Create a Dashboard containing graphs that capture all the metrics of your KPIs and adequately representing your SLIs and SLOs. Include a screenshot of the dashboard here, and write a text description of what graphs are represented in the dashboard.  
-![Dashboard part 1](https://github.com/nononoelsg/MetricsDashboard/blob/master/Project_Starter_Files-Building_a_Metrics_Dashboard/answer-img/DashboardPart1.PNG)
+![Dashboard part 1](https://github.com/veselinn16/metrics-dashboard/blob/main/answer-img/DashboardPart1.PNG)
 
-![Dashboard part 2](https://github.com/nononoelsg/MetricsDashboard/blob/master/Project_Starter_Files-Building_a_Metrics_Dashboard/answer-img/DashboardPart2.PNG)
+![Dashboard part 2](https://github.com/veselinn16/metrics-dashboard/blob/main/answer-img/DashboardPart2.PNG)
