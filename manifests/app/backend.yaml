@@ -20,7 +20,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: noelsharker/dashboard_backend:latest
+        image: veselin032/metrics_backend:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
